@@ -1,0 +1,12 @@
+fn gray(n: u8) -> Vec<String> {
+    let mut result = vec!["0".to_string(), "1".to_string()];
+    for _ in 1..n {
+        let mut mirrored: Vec<String> = result.iter().rev().map(|s| format!("1{}", s)).collect();
+        result = result.iter().map(|s| format!("0{}", s)).chain(mirrored).collect();
+    }
+    if n == 0 {
+        vec!["".to_string()]
+    } else {
+        result
+    }
+}
